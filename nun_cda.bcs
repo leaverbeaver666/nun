@@ -65,10 +65,10 @@ void initMap(){
     relics.put("Ice cross", "COLD");
     relics.put("silver crucifix of Las", "WHY ARE YOU SHOOTING WITH THIS RELIC");
     relics.put("BURNING crucifix of Las", "FIRE");
-	relics.put("Fat ruler", "FAT RULER");
+    relics.put("Fat ruler", "FAT RULER");
 	
 	resists = new HashMap();
-    resists.put("detonating", "0%");
+        resists.put("detonating", "0%");
 	resists.put("bursting", "20%");
 	resists.put("popping", "100%");
 	resists.put("crashing", "80%");
