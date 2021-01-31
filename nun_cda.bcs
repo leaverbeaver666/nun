@@ -2,10 +2,10 @@ SCRIPT_NAME = "nuncda";
 SCRIPT_DESC = "abbreviates holy bolt, dispel evil and holy lance type and damage messages";
 SCRIPT_OFF = false;
 
-//	DISCLAIMER:		Nun blast messages are based on amount of dmg done, and as such the resist % should be taken as a guideline, not absolute truth.
+//DISCLAIMER:		Nun blast messages are based on amount of dmg done, and as such the resist % should be taken as a guideline, not absolute truth.
 //					This script is still very much a work in progress, use at your own peril.
 
-//	USER SETTINGS:	Set to false if you want to show spell lines. For the holy lance gag to work, fill in your unique spellwords on the gagHolyLanceCast trigger on line 51.
+//USER SETTINGS:	Set to false if you want to show spell lines. For the holy lance gag to work, fill in your unique spellwords on the gagHolyLanceCast trigger on line 50.
 					boolean gagSpellLines=true;
 
 Map relics;
