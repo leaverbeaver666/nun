@@ -61,14 +61,14 @@ void echoHolyBoltMsg(){
 	String dmgType = relics.get(relic);
 	String resist = resists.get(dmgMessage);
 	clientGUI.printText("general", "Holy Bolt -> "+target+"  ", "FDFD25");
-		if(dmgType.equals("MANA")){
-			clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "FFFF00");
+		if		(dmgType.equals("MANA")){
+					clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "FFFF00");
 		}else if(dmgType.equals("COLD")) {
-			clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "00FFFF");
+					clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "00FFFF");
 		}else if(dmgType.equals("FIRE")) {
-			clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "FF0000");
+					clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "FF0000");
 		}else{
-			clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n");
+					clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n");
 		}
 }
 
@@ -80,14 +80,14 @@ void echoDispelEvilMsg(){
     String dmgType = relics.get(relic);
     String resist = resists.get(dmgMessage);
     clientGUI.printText("general", "Dispel Evil -> "+target+"  ", "FDFD25");
-	if(dmgType.equals("MANA")) {
-		clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "FFFF00");
+	if		(dmgType.equals("MANA")) {
+				clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "FFFF00");
 	}else if(dmgType.equals("COLD")) {
-		clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "00FFFF");
+				clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "00FFFF");
 	}else if(dmgType.equals("FIRE")) {
-		clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "FF0000");
+				clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "FF0000");
 	}else{
-		clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n");
+				clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n");
 	}
 }
 
@@ -98,14 +98,14 @@ void echoHolyLanceMsg(){
     String target = vars.get(3);
     String dmgType = relics.get(relic);
     clientGUI.printText("general", "Holy Lance -> "+target+"  ", "FDFD25");
-	if(dmgType.equals("MANA")) {
-		clientGUI.printText("general", "[ "+dmgType+" "+dmgMessage+" ]\n", "FFFF00");
+	if		(dmgType.equals("MANA")) {
+				clientGUI.printText("general", "[ "+dmgType+" "+dmgMessage+" ]\n", "FFFF00");
 	}else if(dmgType.equals("COLD")) {
-		clientGUI.printText("general", "[ "+dmgType+" "+dmgMessage+" ]\n", "00FFFF");
+				clientGUI.printText("general", "[ "+dmgType+" "+dmgMessage+" ]\n", "00FFFF");
 	}else if(dmgType.equals("FIRE")) {
-		clientGUI.printText("general", "[ "+dmgType+" "+dmgMessage+" ]\n", "FF0000");
+				clientGUI.printText("general", "[ "+dmgType+" "+dmgMessage+" ]\n", "FF0000");
 	}else{
-		clientGUI.printText("general", "[ "+dmgType+" "+dmgMessage+" ]\n");
+				clientGUI.printText("general", "[ "+dmgType+" "+dmgMessage+" ]\n");
 	}
 }
 
