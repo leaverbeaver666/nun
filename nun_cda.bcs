@@ -2,76 +2,74 @@ SCRIPT_NAME = "nuncda";
 SCRIPT_DESC = "abbreviates holy bolt, dispel evil and holy lance type and damage messages";
 SCRIPT_OFF = false;
 
-//	DISCLAIMER: 	Nun blast messages are based on amount of dmg done, and as such the resist % should be taken as a guideline, not absolute truth.
+//	DISCLAIMER:		Nun blast messages are based on amount of dmg done, and as such the resist % should be taken as a guideline, not absolute truth.
 //					This script is still very much a work in progress, use at your own peril.
 
-//	USER SETTINGS: 	Set to false if you want to show spell lines. For the holy lance gag to work, fill in your unique spellwords on the gagHolyLanceCast trigger on line 51.
+//	USER SETTINGS:	Set to false if you want to show spell lines. For the holy lance gag to work, fill in your unique spellwords on the gagHolyLanceCast trigger on line 51.
 					boolean gagSpellLines=true;
-					
+
 Map relics;
 Map resists;
 
 void bootup() {
-    initMap();
+	initMap();
 
-    triggerManager.newTrigger(
-    "nunCastHolyBolt",
-    "^Surges of holy force coil around your ([A-Za-z ]+) forming a (?:fuming|pulsing|vibrating) bolt of divine energy. You twist your wrist and bolt hurls through the air ([a-z ]+) on (.*).$",
-    "$"+SCRIPT_NAME+".echoHolyBoltMsg",
-    true,false,false,null,Font.PLAIN);
-	
-    triggerManager.newTrigger(
-    "nunCastDispelEvil",
-    "^(?:Flash of brilliance takes over|Waves of holy force enfold|Air crackles around) you as dazzling flash erupts from your ([A-Za-z ]+) and strikes ([a-z ]+) upon (.*).$",
-    "$"+SCRIPT_NAME+".echoDispelEvilMsg",
-    true,false,false,null,Font.PLAIN);
-	
-    triggerManager.newTrigger(
-    "nunCastHolyLance",
-    "^Your ([A-Za-z ]+) (?:shines divinely|sparkles|blazes in celestial flames) as white lightning strikes through the air ([a-z]+) (.*).$",
-    "$"+SCRIPT_NAME+".echoHolyLanceMsg",
-    true,false,false,null,Font.PLAIN);
-	
-	if(gagSpellLines)
-	{
 	triggerManager.newTrigger(
-	"gagHolyBoltCast",
-	"^You (?:are surrounded by fuming white aura as you mutter|cut the air with [A-Za-z ]+, loudly reciting|kiss [A-Za-z ]+ while chanting|hop with one leg while praising Las and utter|hold your [A-Za-z ]+ and humbly mutter) 'Sanctum circum'$",
-	"",
+	"nunCastHolyBolt",
+	"^Surges of holy force coil around your ([A-Za-z ]+) forming a (?:fuming|pulsing|vibrating) bolt of divine energy. You twist your wrist and bolt hurls through the air ([a-z ]+) on (.*).$",
+	"$"+SCRIPT_NAME+".echoHolyBoltMsg",
 	true,false,false,null,Font.PLAIN);
 	
 	triggerManager.newTrigger(
-	"gagDispelEvilCast",
-	"^You (?:kiss [A-Za-z ]+ while chanting|hop with one leg while praising Las and utter|are surrounded by fuming white aura as you mutter) 'Ez' div'$",
-	"",
+	"nunCastDispelEvil",
+	"^(?:Flash of brilliance takes over|Waves of holy force enfold|Air crackles around) you as dazzling flash erupts from your ([A-Za-z ]+) and strikes ([a-z ]+) upon (.*).$",
+	"$"+SCRIPT_NAME+".echoDispelEvilMsg",
 	true,false,false,null,Font.PLAIN);
 	
 	triggerManager.newTrigger(
-	"gagHolyLanceCast",
-	"^You (?:rub [A-Za-z ]+ and utter with sinister voice|spread white glow with your [A-Za-z ]+ and exclaim) ''uxmus vqsol cyvii'$",
-	"",
+	"nunCastHolyLance",
+	"^Your ([A-Za-z ]+) (?:shines divinely|sparkles|blazes in celestial flames) as white lightning strikes through the air ([a-z]+) (.*).$",
+	"$"+SCRIPT_NAME+".echoHolyLanceMsg",
 	true,false,false,null,Font.PLAIN);
+	
+	if(gagSpellLines) {
+		triggerManager.newTrigger(
+		"gagHolyBoltCast",
+		"^You (?:are surrounded by fuming white aura as you mutter|cut the air with [A-Za-z ]+, loudly reciting|kiss [A-Za-z ]+ while chanting|hop with one leg while praising Las and utter|hold your [A-Za-z ]+ and humbly mutter) 'Sanctum circum'$",
+		"",
+		true,false,false,null,Font.PLAIN);
+	
+		triggerManager.newTrigger(
+		"gagDispelEvilCast",
+		"^You (?:kiss [A-Za-z ]+ while chanting|hop with one leg while praising Las and utter|are surrounded by fuming white aura as you mutter) 'Ez' div'$",
+		"",
+		true,false,false,null,Font.PLAIN);
+	
+		triggerManager.newTrigger(
+		"gagHolyLanceCast",
+		"^You (?:rub [A-Za-z ]+ and utter with sinister voice|spread white glow with your [A-Za-z ]+ and exclaim) ''uxmus vqsol cyvii'$",
+		"",
+		true,false,false,null,Font.PLAIN);
 	}
 }
 
 void echoHolyBoltMsg(){
-    String fullLine = vars.get(0);
-    String relic = vars.get(1);
-    String dmgMessage = vars.get(2);
-    String target = vars.get(3);
-    String dmgType = relics.get(relic);
-    String resist = resists.get(dmgMessage);
-    clientGUI.printText("general", "Holy Bolt -> "+target+"  ", "FDFD25");
-		if(dmgType.equals("MANA"))
-	{
-		clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "FFFF00");
-	}else if(dmgType.equals("COLD")) {
-		clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "00FFFF");
-	}else if(dmgType.equals("FIRE")) {
-		clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "FF0000");
-	}else{
-		clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n");
-	}
+	String fullLine = vars.get(0);
+	String relic = vars.get(1);
+	String dmgMessage = vars.get(2);
+	String target = vars.get(3);
+	String dmgType = relics.get(relic);
+	String resist = resists.get(dmgMessage);
+	clientGUI.printText("general", "Holy Bolt -> "+target+"  ", "FDFD25");
+		if(dmgType.equals("MANA")){
+			clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "FFFF00");
+		}else if(dmgType.equals("COLD")) {
+			clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "00FFFF");
+		}else if(dmgType.equals("FIRE")) {
+			clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "FF0000");
+		}else{
+			clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n");
+		}
 }
 
 void echoDispelEvilMsg(){
@@ -82,8 +80,7 @@ void echoDispelEvilMsg(){
     String dmgType = relics.get(relic);
     String resist = resists.get(dmgMessage);
     clientGUI.printText("general", "Dispel Evil -> "+target+"  ", "FDFD25");
-	if(dmgType.equals("MANA"))
-	{
+	if(dmgType.equals("MANA")) {
 		clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "FFFF00");
 	}else if(dmgType.equals("COLD")) {
 		clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "00FFFF");
@@ -101,40 +98,39 @@ void echoHolyLanceMsg(){
     String target = vars.get(3);
     String dmgType = relics.get(relic);
     clientGUI.printText("general", "Holy Lance -> "+target+"  ", "FDFD25");
-		if(dmgType.equals("MANA"))
-	{
-		clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "FFFF00");
+	if(dmgType.equals("MANA")) {
+		clientGUI.printText("general", "[ "+dmgType+" "+dmgMessage+" ]\n", "FFFF00");
 	}else if(dmgType.equals("COLD")) {
-		clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "00FFFF");
+		clientGUI.printText("general", "[ "+dmgType+" "+dmgMessage+" ]\n", "00FFFF");
 	}else if(dmgType.equals("FIRE")) {
-		clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "FF0000");
+		clientGUI.printText("general", "[ "+dmgType+" "+dmgMessage+" ]\n", "FF0000");
 	}else{
-		clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n");
+		clientGUI.printText("general", "[ "+dmgType+" "+dmgMessage+" ]\n");
 	}
 }
 
 //supported relics: crosier of angel, cold relic, fire relic, fat ruler, add as needed
 void initMap(){
-    relics = new HashMap();
-    relics.put("Crosier of Angel", "MANA");
-    relics.put("Ice cross", "COLD");
-    relics.put("silver crucifix of Las", "WHY ARE YOU SHOOTING WITH THIS RELIC");
-    relics.put("BURNING crucifix of Las", "FIRE");
-    relics.put("Fat ruler", "FAT RULER");
+	relics = new HashMap();
+	relics.put("Crosier of Angel", "MANA");
+	relics.put("Ice cross", "COLD");
+	relics.put("silver crucifix of Las", "WHY ARE YOU SHOOTING WITH THIS RELIC");
+	relics.put("BURNING crucifix of Las", "FIRE");
+	relics.put("Fat ruler", "FAT RULER");
 	
-    resists = new HashMap();
-    resists.put("detonating", "0%");
-    resists.put("bursting", "20%");
-    resists.put("popping", "100%");
-    resists.put("crashing", "80%");
-    resists.put("exploding", "60%");
-    resists.put("blowing up", "80%");
-    resists.put("slamming", "40%");
-    resists.put("with immense power", "0%");
-    resists.put("with terrific force", "<20%");
-    resists.put("with sheer force", "20%");
-    resists.put("with blazing rage", "40%");
-    resists.put("with purifying glow", "60%");
-    resists.put("mightily", "80%");
-    resists.put("hard", "100%");
+	resists = new HashMap();
+	resists.put("detonating", "0%");
+	resists.put("bursting", "20%");
+	resists.put("popping", "100%");
+	resists.put("crashing", "80%");
+	resists.put("exploding", "60%");
+	resists.put("blowing up", "80%");
+	resists.put("slamming", "40%");
+	resists.put("with immense power", "0%");
+	resists.put("with terrific force", "<20%");
+	resists.put("with sheer force", "20%");
+	resists.put("with blazing rage", "40%");
+	resists.put("with purifying glow", "60%");
+	resists.put("mightily", "80%");
+	resists.put("hard", "100%");
     }
