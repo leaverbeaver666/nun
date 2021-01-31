@@ -22,7 +22,7 @@ void bootup() {
 	
     triggerManager.newTrigger(
     "nunCastDispelEvil",
-    "^(?:(?:Flash|Waves)? of brilliance takes over|holy force enfold|Air crackles around) you as dazzling flash erupts from your ([A-Za-z ]+) and strikes ([a-z ]+) upon (.*).$",
+    "^(?:Flash of brilliance takes over|Waves of holy force enfold|Air crackles around) you as dazzling flash erupts from your ([A-Za-z ]+) and strikes ([a-z ]+) upon (.*).$",
     "$"+SCRIPT_NAME+".echoDispelEvilMsg",
     true,false,false,null,Font.PLAIN);
 	
@@ -35,7 +35,7 @@ void bootup() {
 	if(gagSpellLines) {
 	triggerManager.newTrigger(
 	"gagHolyBoltCast",
-	"^You (?:are surrounded by fuming white aura as you mutter|cut the air with [A-Za-z ]+, loudly reciting|kiss [A-Za-z ]+ while chanting) 'Sanctum circum'$",
+	"^You (?:are surrounded by fuming white aura as you mutter|cut the air with [A-Za-z ]+, loudly reciting|kiss [A-Za-z ]+ while chanting|hop with one leg while praising Las and utter) 'Sanctum circum'$",
 	"",
 	true,false,false,null,Font.PLAIN);
 	
