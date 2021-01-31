@@ -3,11 +3,11 @@ SCRIPT_DESC = "abbreviates holy bolt, dispel evil and holy lance type and damage
 SCRIPT_OFF = false;
 
 //	DISCLAIMER: 	Nun blast messages are based on amount of dmg done, and as such the resist % should be taken as a guideline, not absolute truth.
-//			This script is still very much a work in progress, use at your own peril.
+//					This script is still very much a work in progress, use at your own peril.
 
-//	USER SETTINGS: 	Set to false if you want to show spell lines. For the holy lance gag to work, fill in your unique spellwords on the gagHolyLanceCast trigger on line 50.
-			boolean gagSpellLines=true;
-
+//	USER SETTINGS: 	Set to false if you want to show spell lines. For the holy lance gag to work, fill in your unique spellwords on the gagHolyLanceCast trigger on line 51.
+					boolean gagSpellLines=true;
+					
 Map relics;
 Map resists;
 
@@ -28,26 +28,27 @@ void bootup() {
 	
     triggerManager.newTrigger(
     "nunCastHolyLance",
-    "^Your ([A-Za-z ]+) (?:shines divinely|sparkles) as white lightning strikes through the air ([a-z]+) (.*).$",
+    "^Your ([A-Za-z ]+) (?:shines divinely|sparkles|blazes in celestial flames) as white lightning strikes through the air ([a-z]+) (.*).$",
     "$"+SCRIPT_NAME+".echoHolyLanceMsg",
     true,false,false,null,Font.PLAIN);
 	
-	if(gagSpellLines) {
+	if(gagSpellLines)
+	{
 	triggerManager.newTrigger(
 	"gagHolyBoltCast",
-	"^You (?:are surrounded by fuming white aura as you mutter|cut the air with [A-Za-z ]+, loudly reciting|kiss [A-Za-z ]+ while chanting|hop with one leg while praising Las and utter) 'Sanctum circum'$",
+	"^You (?:are surrounded by fuming white aura as you mutter|cut the air with [A-Za-z ]+, loudly reciting|kiss [A-Za-z ]+ while chanting|hop with one leg while praising Las and utter|hold your [A-Za-z ]+ and humbly mutter) 'Sanctum circum'$",
 	"",
 	true,false,false,null,Font.PLAIN);
 	
 	triggerManager.newTrigger(
 	"gagDispelEvilCast",
-	"^You (kiss ([A-Za-z ]+) while chanting|hop with one leg while praising Las and utter) 'Ez' div'$",
+	"^You (?:kiss [A-Za-z ]+ while chanting|hop with one leg while praising Las and utter|are surrounded by fuming white aura as you mutter) 'Ez' div'$",
 	"",
 	true,false,false,null,Font.PLAIN);
 	
 	triggerManager.newTrigger(
 	"gagHolyLanceCast",
-	"^You rub (?:[A-Za-z ]+) and utter with sinister voice ''uxmus vqsol cyvii'$",
+	"^You (?:rub [A-Za-z ]+ and utter with sinister voice|spread white glow with your [A-Za-z ]+ and exclaim) ''uxmus vqsol cyvii'$",
 	"",
 	true,false,false,null,Font.PLAIN);
 	}
@@ -60,7 +61,17 @@ void echoHolyBoltMsg(){
     String target = vars.get(3);
     String dmgType = relics.get(relic);
     String resist = resists.get(dmgMessage);
-    clientGUI.printText("general", "Holy Bolt -> "+target+"  [ "+dmgType+" "+resist+" ]\n");
+    clientGUI.printText("general", "Holy Bolt -> "+target+"  ", "FDFD25");
+		if(dmgType.equals("MANA"))
+	{
+		clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "FFFF00");
+	}else if(dmgType.equals("COLD")) {
+		clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "00FFFF");
+	}else if(dmgType.equals("FIRE")) {
+		clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "FF0000");
+	}else{
+		clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n");
+	}
 }
 
 void echoDispelEvilMsg(){
@@ -70,7 +81,17 @@ void echoDispelEvilMsg(){
     String target = vars.get(3);
     String dmgType = relics.get(relic);
     String resist = resists.get(dmgMessage);
-    clientGUI.printText("general", "Dispel Evil -> "+target+"  [ "+dmgType+" "+resist+" ]\n");
+    clientGUI.printText("general", "Dispel Evil -> "+target+"  ", "FDFD25");
+	if(dmgType.equals("MANA"))
+	{
+		clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "FFFF00");
+	}else if(dmgType.equals("COLD")) {
+		clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "00FFFF");
+	}else if(dmgType.equals("FIRE")) {
+		clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "FF0000");
+	}else{
+		clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n");
+	}
 }
 
 void echoHolyLanceMsg(){
@@ -79,7 +100,17 @@ void echoHolyLanceMsg(){
     String dmgMessage = vars.get(2);
     String target = vars.get(3);
     String dmgType = relics.get(relic);
-    clientGUI.printText("general", "Holy Lance -> "+target+"  [ "+dmgType+" "+dmgMessage+" ]\n");
+    clientGUI.printText("general", "Holy Lance -> "+target+"  ", "FDFD25");
+		if(dmgType.equals("MANA"))
+	{
+		clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "FFFF00");
+	}else if(dmgType.equals("COLD")) {
+		clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "00FFFF");
+	}else if(dmgType.equals("FIRE")) {
+		clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "FF0000");
+	}else{
+		clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n");
+	}
 }
 
 //supported relics: crosier of angel, cold relic, fire relic, fat ruler, add as needed
