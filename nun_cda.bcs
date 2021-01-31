@@ -61,7 +61,7 @@ void echoHolyBoltMsg(){
 	String dmgType = relics.get(relic);
 	String resist = resists.get(dmgMessage);
 	clientGUI.printText("general", "Holy Bolt -> "+target+"  ", "FDFD25");
-		if		(dmgType.equals("MANA")){
+		if		(dmgType.equals("MANA")) {
 					clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "FFFF00");
 		}else if(dmgType.equals("COLD")) {
 					clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "00FFFF");
@@ -109,7 +109,7 @@ void echoHolyLanceMsg(){
 	}
 }
 
-//supported relics: crosier of angel, cold relic, fire relic, fat ruler, add as needed
+//SUPPORTED RELICS:	crosier of angel, cold relic, fire relic, fat ruler, add as needed
 void initMap(){
 	relics = new HashMap();
 	relics.put("Crosier of Angel", "MANA");
