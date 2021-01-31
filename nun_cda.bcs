@@ -23,13 +23,13 @@ void bootup() {
 	
     triggerManager.newTrigger(
     "nunCastDispelEvil",
-    "^(?:Flash|Waves) of (?:brilliance takes over|holy force enfold) you as dazzling flash erupts from your ([A-Za-z ]+) and strikes ([a-z ]+) upon (.*).$",
+    "^(?:(?:Flash|Waves)? of brilliance takes over|holy force enfold|Air crackles around) you as dazzling flash erupts from your ([A-Za-z ]+) and strikes ([a-z ]+) upon (.*).$",
     "$"+SCRIPT_NAME+".echoDispelEvilMsg",
     true,false,false,null,Font.PLAIN);
 	
     triggerManager.newTrigger(
     "nunCastHolyLance",
-    "^Your ([A-Za-z ]+) shines divinely as white lightning strikes through the air ([a-z]+) (.*).$",
+    "^Your ([A-Za-z ]+) (?:shines divinely|sparkles) as white lightning strikes through the air ([a-z]+) (.*).$",
     "$"+SCRIPT_NAME+".echoHolyLanceMsg",
     true,false,false,null,Font.PLAIN);
 	
@@ -42,7 +42,7 @@ void bootup() {
 	
 	triggerManager.newTrigger(
 	"gagDispelEvilCast",
-	"^You kiss ([A-Za-z ]+) while chanting 'Ez' div'$",
+	"^You (kiss ([A-Za-z ]+) while chanting|hop with one leg while praising Las and utter) 'Ez' div'$",
 	"",
 	true,false,false,null,Font.PLAIN);
 	
