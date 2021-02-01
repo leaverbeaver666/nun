@@ -5,8 +5,10 @@ SCRIPT_OFF = false;
 //DISCLAIMER:		Nun blast messages are based on amount of dmg done, and as such the resist % should be taken as a guideline, not absolute truth.
 //					This script is still very much a work in progress, use at your own peril.
 
-//USER SETTINGS:	Set to false if you want to show spell lines. For the holy lance gag to work, fill in your unique spellwords on the gagHolyLanceCast trigger on line 50.
+//USER SETTINGS:	Set to false if you want to show spell lines.
 					boolean gagSpellLines=true;
+//					For the Holy Lance gag to work, fill in your unique spellwords here.
+					String holyLanceWords="'uxmus vqsol cyvii";
 
 Map relics;
 Map resists;
@@ -47,7 +49,7 @@ void bootup() {
 	
 		triggerManager.newTrigger(
 		"gagHolyLanceCast",
-		"^You (?:rub [A-Za-z ]+ and utter with sinister voice|spread white glow with your [A-Za-z ]+ and exclaim) ''uxmus vqsol cyvii'$",
+		"^You (?:rub [A-Za-z ]+ and utter with sinister voice|spread white glow with your [A-Za-z ]+ and exclaim|kiss [A-Za-z ]+ while chanting) '"+holyLanceWords+"'$",
 		"",
 		true,false,false,null,Font.PLAIN);
 	}
