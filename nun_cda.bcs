@@ -1,5 +1,5 @@
 SCRIPT_NAME = "nuncda";
-SCRIPT_DESC = "abbreviates holy bolt, dispel evil and holy lance type and damage messages";
+SCRIPT_DESC = "abbreviates _your_ holy bolt, dispel evil and holy lance type and damage messages";
 SCRIPT_OFF = false;
 
 //DISCLAIMER:		Nun blast messages are based on amount of dmg done, and as such the resist % should be taken as a guideline, not absolute truth.
