@@ -2,21 +2,21 @@ SCRIPT_NAME = "nuncda";
 SCRIPT_DESC = "abbreviates _your_ holy bolt, dispel evil and holy lance type and damage messages";
 SCRIPT_OFF = false;
 
-//DISCLAIMER:		Nun blast messages are based on amount of dmg done, and as such the resist % should be taken as a guideline, not absolute truth.
+//DISCLAIMER:		Nun blast messages are based on the amount of damage done, and as such the resist % should be taken as a guideline, not absolute truth.
 //					This script is still very much a work in progress, use at your own peril.
 //					Thanks to Glaurung and Hair for all the advice and emotional support.
 
-//USER SETTINGS:	Set to false if you want to show spell lines.
+//USER SETTINGS:	Toggle gags for the original 'spell cast finished' messages.
 					boolean gagSpellLines=true;
 					
-//					For the Holy Lance gag to work, fill in your unique spellwords here:
+//					For the Holy Lance gag to work, fill in your unique spellwords:
 					String holyLanceWords="'uxmus vqsol cyvii";
-					
-//					The default HTML color code for the echo. (https://htmlcolorcodes.com/)
-					String echoColor="FDFD25";
 					
 //					Toggle colors.
 					boolean useColors=true;
+					
+//					The default HTML color code for the echo. (https://htmlcolorcodes.com/)
+					String echoColor="FDFD25";
 
 					
 					
@@ -133,8 +133,8 @@ void initMap(){
 
 //ANSI color codes for type damage coloring, customize as needed.
 	colors = new HashMap();
-	colors.put("FIRE", "\u001b[31m");
-	colors.put("MANA", "\u001b[33m");
-	colors.put("COLD", "\u001b[36m");
-	colors.put("FAT RULER", "\u001b[33m");
+	colors.put("FIRE", "\u001b[31m"); // red
+	colors.put("MANA", "\u001b[33m"); // yellow
+	colors.put("COLD", "\u001b[36m"); // cyan 
+	colors.put("FAT RULER", "\u001b[33m"); // yellow
 }
