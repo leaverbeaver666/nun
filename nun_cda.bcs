@@ -58,13 +58,13 @@ void bootup() {
 	
 		triggerManager.newTrigger(
 		"gagDispelEvilCast",
-		"^You (?:kiss [A-Za-z ]+ while chanting|hop with one leg while praising Las and utter|are surrounded by fuming white aura as you mutter|roll your eyes while rubbing halo and sing out) 'Ez' div'$",
+		"^You (?:kiss [A-Za-z ]+ while chanting|hop with one leg while praising Las and utter|are surrounded by fuming white aura as you mutter|roll your eyes while rubbing halo and sing out|frantically swing [A-Za-z ]+ and shriek) 'Ez' div'$",
 		"",
 		true,false,false,null,Font.PLAIN);
 	
 		triggerManager.newTrigger(
 		"gagHolyLanceCast",
-		"^You (?:rub [A-Za-z ]+ and utter with sinister voice|spread white glow with your [A-Za-z ]+ and exclaim|kiss [A-Za-z ]+ while chanting) '"+holyLanceWords+"'$",
+		"^You (?:rub [A-Za-z ]+ and utter with sinister voice|spread white glow with your [A-Za-z ]+ and exclaim|kiss [A-Za-z ]+ while chanting|cherish your [A-Za-z ]+ and determinedly chant) '"+holyLanceWords+"'$",
 		"",
 		true,false,false,null,Font.PLAIN);
 	}
