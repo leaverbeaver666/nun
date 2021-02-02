@@ -4,14 +4,29 @@ SCRIPT_OFF = false;
 
 //DISCLAIMER:		Nun blast messages are based on amount of dmg done, and as such the resist % should be taken as a guideline, not absolute truth.
 //					This script is still very much a work in progress, use at your own peril.
+//					Thanks to Glaurung and Hair for all the advice and emotional support.
 
 //USER SETTINGS:	Set to false if you want to show spell lines.
 					boolean gagSpellLines=true;
-//					For the Holy Lance gag to work, fill in your unique spellwords here.
+					
+//					For the Holy Lance gag to work, fill in your unique spellwords here:
 					String holyLanceWords="'uxmus vqsol cyvii";
+					
+//					The default HTML color code for the echo. (https://htmlcolorcodes.com/)
+					String echoColor="FDFD25";
+					
+//					Toggle colors.
+					boolean useColors=true;
+
+					
+					
+//ANSI color code options for inline coloring, actual colors are stored in the colors map.
+String RESET 		= "\u001b[0m";
+String BOLD 		= "\u001b[1m";
 
 Map relics;
 Map resists;
+Map colors;
 
 void bootup() {
 	initMap();
@@ -43,7 +58,7 @@ void bootup() {
 	
 		triggerManager.newTrigger(
 		"gagDispelEvilCast",
-		"^You (?:kiss [A-Za-z ]+ while chanting|hop with one leg while praising Las and utter|are surrounded by fuming white aura as you mutter) 'Ez' div'$",
+		"^You (?:kiss [A-Za-z ]+ while chanting|hop with one leg while praising Las and utter|are surrounded by fuming white aura as you mutter|roll your eyes while rubbing halo and sing out) 'Ez' div'$",
 		"",
 		true,false,false,null,Font.PLAIN);
 	
@@ -62,16 +77,10 @@ void echoHolyBoltMsg(){
 	String target = vars.get(3);
 	String dmgType = relics.get(relic);
 	String resist = resists.get(dmgMessage);
-	clientGUI.printText("general", "Holy Bolt -> "+target+"  ", "FDFD25");
-		if		(dmgType.equals("MANA")) {
-					clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "FFFF00");
-		}else if(dmgType.equals("COLD")) {
-					clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "00FFFF");
-		}else if(dmgType.equals("FIRE")) {
-					clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "FF0000");
-		}else{
-					clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n");
-		}
+	String typeColor = colors.get(dmgType);
+	if(useColors) {
+			clientGUI.printText("general", "Holy Bolt -> "+target+"  "+BOLD+typeColor+"[ "+dmgType+" "+resist+" ]"+RESET+"\n", echoColor);
+	}else{	clientGUI.printText("general", "Holy Bolt -> "+target+"  [ "+dmgType+" "+resist+" ]\n"); }
 }
 
 void echoDispelEvilMsg(){
@@ -81,16 +90,10 @@ void echoDispelEvilMsg(){
     String target = vars.get(3);
     String dmgType = relics.get(relic);
     String resist = resists.get(dmgMessage);
-    clientGUI.printText("general", "Dispel Evil -> "+target+"  ", "FDFD25");
-	if		(dmgType.equals("MANA")) {
-				clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "FFFF00");
-	}else if(dmgType.equals("COLD")) {
-				clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "00FFFF");
-	}else if(dmgType.equals("FIRE")) {
-				clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n", "FF0000");
-	}else{
-				clientGUI.printText("general", "[ "+dmgType+" "+resist+" ]\n");
-	}
+	String typeColor = colors.get(dmgType);
+	if(useColors) {
+			clientGUI.printText("general", "Dispel Evil -> "+target+"  "+BOLD+typeColor+"[ "+dmgType+" "+resist+" ]"+RESET+"\n", echoColor);
+	}else{	clientGUI.printText("general", "Dispel Evil -> "+target+"  [ "+dmgType+" "+resist+" ]\n"); }
 }
 
 void echoHolyLanceMsg(){
@@ -99,16 +102,10 @@ void echoHolyLanceMsg(){
     String dmgMessage = vars.get(2);
     String target = vars.get(3);
     String dmgType = relics.get(relic);
-    clientGUI.printText("general", "Holy Lance -> "+target+"  ", "FDFD25");
-	if		(dmgType.equals("MANA")) {
-				clientGUI.printText("general", "[ "+dmgType+" "+dmgMessage+" ]\n", "FFFF00");
-	}else if(dmgType.equals("COLD")) {
-				clientGUI.printText("general", "[ "+dmgType+" "+dmgMessage+" ]\n", "00FFFF");
-	}else if(dmgType.equals("FIRE")) {
-				clientGUI.printText("general", "[ "+dmgType+" "+dmgMessage+" ]\n", "FF0000");
-	}else{
-				clientGUI.printText("general", "[ "+dmgType+" "+dmgMessage+" ]\n");
-	}
+	String typeColor = colors.get(dmgType);
+	if(useColors) {
+			clientGUI.printText("general", "Holy Lance -> "+target+"  "+BOLD+typeColor+"[ "+dmgType+" "+dmgMessage+" ]"+RESET+"\n", echoColor);
+	}else{	clientGUI.printText("general", "Holy Lance -> "+target+"  [ "+dmgType+" "+dmgMessage+" ]\n"); }
 }
 
 //SUPPORTED RELICS:	crosier of angel, cold relic, fire relic, fat ruler, add as needed
@@ -119,7 +116,8 @@ void initMap(){
 	relics.put("silver crucifix of Las", "WHY ARE YOU SHOOTING WITH THIS RELIC");
 	relics.put("BURNING crucifix of Las", "FIRE");
 	relics.put("Fat ruler", "FAT RULER");
-	
+
+//Damage messages with associated resist bracket
 	resists = new HashMap();
 	resists.put("detonating", "0%");
 	resists.put("bursting", "20%");
@@ -135,4 +133,10 @@ void initMap(){
 	resists.put("with purifying glow", "60%");
 	resists.put("mightily", "80%");
 	resists.put("hard", "100%");
-    }
+
+//ANSI color codes for type damage coloring, customize as needed.
+	colors = new HashMap();
+	colors.put("FIRE", "\u001b[31m");
+	colors.put("MANA", "\u001b[33m");
+	colors.put("COLD", "\u001b[36m");
+}
