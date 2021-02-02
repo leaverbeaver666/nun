@@ -16,7 +16,7 @@ SCRIPT_OFF = false;
 					boolean useColors=true;
 					
 //					The default HTML color code for the echo. (https://htmlcolorcodes.com/)
-					String echoColor="FDFD25";
+					String echoColor="FB00FF";
 
 					
 					
@@ -108,10 +108,10 @@ void echoHolyLanceMsg(){
 //SUPPORTED RELICS:	crosier of angel, cold relic, fire relic, fat ruler, add as needed
 void initMap(){
 	relics = new HashMap();
-	relics.put("Crosier of Angel", "MANA");
-	relics.put("Ice cross", "COLD");
+	relics.put("Crosier of Angel", "Mana");
+	relics.put("Ice cross", "Cold");
 	relics.put("silver crucifix of Las", "WHY ARE YOU SHOOTING WITH THIS RELIC");
-	relics.put("BURNING crucifix of Las", "FIRE");
+	relics.put("BURNING crucifix of Las", "Fire");
 	relics.put("Fat ruler", "FAT RULER");
 
 //Damage messages with associated resist bracket
@@ -133,8 +133,8 @@ void initMap(){
 
 //ANSI color codes for type damage coloring, customize as needed.
 	colors = new HashMap();
-	colors.put("FIRE", "\u001b[31m"); // red
-	colors.put("MANA", "\u001b[33m"); // yellow
-	colors.put("COLD", "\u001b[36m"); // cyan 
+	colors.put("Fire", "\u001b[31m"); // red
+	colors.put("Mana", "\u001b[33m"); // yellow
+	colors.put("Cold", "\u001b[36m"); // cyan 
 	colors.put("FAT RULER", "\u001b[33m"); // yellow
 }
