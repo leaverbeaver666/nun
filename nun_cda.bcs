@@ -136,4 +136,5 @@ void initMap(){
 	colors.put("FIRE", "\u001b[31m");
 	colors.put("MANA", "\u001b[33m");
 	colors.put("COLD", "\u001b[36m");
+	colors.put("FAT RULER", "\u001b[33m");
 }
