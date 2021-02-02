@@ -71,7 +71,6 @@ void bootup() {
 }
 
 void echoHolyBoltMsg(){
-	String fullLine = vars.get(0);
 	String relic = vars.get(1);
 	String dmgMessage = vars.get(2);
 	String target = vars.get(3);
@@ -84,7 +83,6 @@ void echoHolyBoltMsg(){
 }
 
 void echoDispelEvilMsg(){
-    String fullLine = vars.get(0);
     String relic = vars.get(1);
     String dmgMessage = vars.get(2);
     String target = vars.get(3);
@@ -97,7 +95,6 @@ void echoDispelEvilMsg(){
 }
 
 void echoHolyLanceMsg(){
-    String fullLine = vars.get(0);
     String relic = vars.get(1);
     String dmgMessage = vars.get(2);
     String target = vars.get(3);
