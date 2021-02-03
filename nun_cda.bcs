@@ -6,7 +6,7 @@ SCRIPT_OFF = false;
 //					This script is still very much a work in progress, use at your own peril.
 //					Thanks to Glaurung and Hair for all the advice and emotional support.
 
-//USER SETTINGS:	Toggle gags for the original 'spell cast finished' messages.
+//USER SETTINGS:	Toggle gags for the original 'spell cast finished' messages. (You are surrounded by fuming white aura as you mutter 'Sanctum circum')
 					boolean gagSpellLines=true;
 					
 //					For the Holy Lance gag to work, fill in your unique spellwords:
