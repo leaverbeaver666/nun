@@ -52,7 +52,7 @@ void bootup() {
 	if(gagSpellLines) {
 		triggerManager.newTrigger(
 		"gagHolyBoltCast",
-		"^You (?:are surrounded by fuming white aura as you mutter|cut the air with [A-Za-z ]+, loudly reciting|kiss [A-Za-z ]+ while chanting|hop with one leg while praising Las and utter|hold your [A-Za-z ]+ and humbly mutter|swing your [A-Za-z ]+ and humbly utter|kneel down squeezing [A-Za-z ]+ and recite|rub your [A-Za-z ]+ while humbly reciting) 'Sanctum circum'$",
+		"^You (?:are surrounded by fuming white aura as you mutter|cut the air with [A-Za-z ]+, loudly reciting|kiss [A-Za-z ]+ while chanting|hop with one leg while praising Las and utter|hold your [A-Za-z ]+ and humbly mutter|swing your [A-Za-z ]+ and humbly utter|kneel down squeezing [A-Za-z ]+ and recite|rub your [A-Za-z ]+ while humbly reciting|raise [A-Za-z ]+ high in the air and mutter) 'Sanctum circum'$",
 		"",
 		true,false,false,null,Font.PLAIN);
 	
