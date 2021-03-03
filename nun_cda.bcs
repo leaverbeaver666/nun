@@ -64,7 +64,7 @@ void bootup() {
 	
 		triggerManager.newTrigger(
 		"gagHolyLanceCast",
-		"^You (?:rub [A-Za-z ]+ and utter with sinister voice|spread white glow with your [A-Za-z ]+ and exclaim|kiss [A-Za-z ]+ while chanting|cherish your [A-Za-z ]+ and determinedly chant|swing your [A-Za-z ]+ and humbly utter|wave [A-Za-z ]+ while praising Las and exclaim|hold your [A-Za-z ]+ tightly and exclaim) '"+holyLanceWords+"'$",
+		"^You (?:rub [A-Za-z ]+ and utter with sinister voice|spread white glow with your [A-Za-z ]+ and exclaim|kiss [A-Za-z ]+ while chanting|cherish your [A-Za-z ]+ and determinedly chant|swing your [A-Za-z ]+ and humbly utter|wave [A-Za-z ]+ while praising Las and exclaim|hold your [A-Za-z ]+ tightly and exclaim|fume celestial force and utter the words) '"+holyLanceWords+"'$",
 		"",
 		true,false,false,null,Font.PLAIN);
 	}
