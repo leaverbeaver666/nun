@@ -58,7 +58,7 @@ void bootup() {
 	
 		triggerManager.newTrigger(
 		"gagDispelEvilCast",
-		"^You (?:kiss [A-Za-z ]+ while chanting|hop with one leg while praising Las and utter|are surrounded by fuming white aura as you mutter|roll your eyes while rubbing halo and sing out|frantically swing [A-Za-z ]+ and shriek|praise the saints and raise [A-Za-z ]+ while exclaiming|kneel down squeezing [A-Za-z ]+ and recite|hold your [A-Za-z ]+ close and humbly mutter|raise your [A-Za-z ]+ while muttering|wave furiously your [A-Za-z ]+ and utter|fume celestial force and utter the words|rub your [A-Za-z ]+ while humbly reciting|squeeze tightly on your glimmering [A-Za-z ]+ and utter) 'Ez' div'$",
+		"^You (?:kiss|frantically swing|praise the saints and raise|kneel down squeezing|hold your|hop with one leg while praising Las and utter|roll your eyes while rubbing halo and sing out|raise your|wave furiously your|fume celestial force and utter the words|rub your|squeeze tightly on your glimmering)[A-Za-z ]+'Ez' div'$",
 		"",
 		true,false,false,null,Font.PLAIN);
 	
