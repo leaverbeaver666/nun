@@ -52,7 +52,7 @@ void bootup() {
 	if(gagSpellLines) {
 		triggerManager.newTrigger(
 		"gagNunBlastCast",
-		"^You (?:kiss|frantically swing|praise the saints and raise|kneel down squeezing|hold your|hop with one leg while praising Las and utter|roll your eyes while rubbing halo and sing out|wave furiously your|fume celestial force and utter the words|squeeze tightly on your glimmering|rub|raise|stare intensively at|mutter the magic words|cherish your)[A-Za-z ]+'(?:Ez' div|Sanctum circum|"+holyLanceWords+")'$",
+		"^You (?:kiss|frantically swing|praise the saints and raise|kneel down squeezing|hold your|hop with one leg while praising Las and utter|roll your eyes while rubbing halo and sing out|wave furiously your|fume celestial force and utter the words|squeeze tightly on your glimmering|rub|raise|stare intensively at|mutter the magic words|cherish your|gaze to the heighs while holding)[A-Za-z ]+'(?:Ez' div|Sanctum circum|"+holyLanceWords+")'$",
 		"",
 		true,false,false,null,Font.PLAIN);
 	}
