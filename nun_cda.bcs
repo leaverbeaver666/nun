@@ -33,7 +33,7 @@ void bootup() {
 
 	triggerManager.newTrigger(
 	"nunCastHolyBolt",
-	"^Surges of holy force coil around your ([A-Za-z ]+) forming a (?:fuming|pulsing|vibrating) bolt of divine energy. You twist your wrist and bolt hurls through the air ([a-z ]+) on (.*).$",
+	"^Surges of holy force coil around your ([A-Za-z ]+) forming a (?:fuming|pulsing|vibrating|sparkling) bolt of divine energy. You twist your wrist and bolt hurls through the air ([a-z ]+) on (.*).$",
 	"$"+SCRIPT_NAME+".echoHolyBoltMsg",
 	true,false,false,null,Font.PLAIN);
 	
