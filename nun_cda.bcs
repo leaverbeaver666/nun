@@ -52,7 +52,7 @@ void bootup() {
 	if(gagSpellLines) {
 		triggerManager.newTrigger(
 		"gagNunBlastCast",
-		"^You (?:kiss|frantically swing|praise the saints and raise|kneel down squeezing|hold your|hop with one leg while praising Las and utter|roll your eyes while rubbing halo and sing out|wave|fume celestial force and utter the words|squeeze tightly on your glimmering|rub|raise|stare intensively at|mutter the magic words|cherish your|gaze to the heighs while holding|cut the air with|are surrounded by fuming white aura as you mutter|spread white glow with your|touch your pulsing halo and quickly recite)[A-Za-z ,]+'(?:Ez' div|Sanctum circum|"+holyLanceWords+")'$",
+		"^You (?:kiss|frantically swing|praise the saints and raise|kneel down squeezing|hold your|hop with one leg while praising Las and utter|roll your eyes while rubbing halo and sing out|wave|fume celestial force and utter the words|squeeze tightly on your glimmering|rub|raise|stare intensively at|mutter the magic words|cherish your|gaze to the heighs while holding|cut the air with|are surrounded by fuming white aura as you mutter|spread white glow with your|touch your pulsing halo and quickly recite|swing)[A-Za-z ,]+'(?:Ez' div|Sanctum circum|"+holyLanceWords+")'$",
 		"",
 		true,false,false,null,Font.PLAIN);
 	}
@@ -98,7 +98,7 @@ void initMap(){
 	relics = new HashMap();
 	relics.put("Crosier of Angel", "Mana");
 	relics.put("Ice cross", "Cold");
-	relics.put("silver crucifix of Las", "WHY ARE YOU SHOOTING WITH THIS RELIC");
+	relics.put("silver crucifix of Las", "REFUEL ME PLZ");
 	relics.put("BURNING crucifix of Las", "Fire");
 	relics.put("Fat ruler", "FAT RULER");
 	relics.put("Misty Rosary", "ROSARY");
@@ -127,4 +127,5 @@ void initMap(){
 	colors.put("Cold", "\u001b[36m"); // cyan 
 	colors.put("FAT RULER", "\u001b[33m"); // yellow
 	colors.put("ROSARY", "\u001b[33m"); // yellow
+	colors.put("REFUEL ME PLZ", "\u001b[33m"); // yellow
 }
