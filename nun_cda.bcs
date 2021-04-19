@@ -45,7 +45,7 @@ void bootup() {
 	
 	triggerManager.newTrigger(
 	"nunCastHolyLance",
-	"^Your ([A-Za-z ]+) (?:shines divinely|sparkles|blazes in celestial flames) as white lightning strikes through the air ([a-z]+) (.*).$",
+	"^Your ([A-Za-z ]+) (?:shines divinely|sparkles|blazes in celestial flames|radiates purity) as white lightning strikes through the air ([a-z]+) (.*).$",
 	"$"+SCRIPT_NAME+".echoHolyLanceMsg",
 	true,false,false,null,Font.PLAIN);
 	
