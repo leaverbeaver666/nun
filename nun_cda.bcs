@@ -102,6 +102,7 @@ void initMap(){
 	relics.put("BURNING crucifix of Las", "Fire");
 	relics.put("Fat ruler", "FAT RULER");
 	relics.put("Misty Rosary", "ROSARY");
+	relics.put("platinum-cross shield of Sashita", "Mana");
 
 //Damage messages with associated resist bracket
 	resists = new HashMap();
