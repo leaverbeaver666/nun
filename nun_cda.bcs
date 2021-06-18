@@ -33,26 +33,26 @@ void bootup() {
 
 	triggerManager.newTrigger(
 	"nunCastHolyBolt",
-	"^Surges of holy force coil around your ([A-Za-z ]+) forming a (?:fuming|pulsing|vibrating|sparkling) bolt of divine energy. You twist your wrist and bolt hurls through the air ([a-z ]+) on (.*).$",
+	"^Surges of holy force coil around your ([A-Za-z -]+) forming a (?:fuming|pulsing|vibrating|sparkling) bolt of divine energy. You twist your wrist and bolt hurls through the air ([a-z ]+) on (.*).$",
 	"$"+SCRIPT_NAME+".echoHolyBoltMsg",
 	true,false,false,null,Font.PLAIN);
 	
 	triggerManager.newTrigger(
 	"nunCastDispelEvil",
-	"^(?:Flash of brilliance takes over|Waves of holy force enfold|Air crackles around|Holy sparks fly around) you as dazzling flash erupts from your ([A-Za-z ]+) and strikes ([a-z ]+) upon (.*).$",
+	"^(?:Flash of brilliance takes over|Waves of holy force enfold|Air crackles around|Holy sparks fly around) you as dazzling flash erupts from your ([A-Za-z -]+) and strikes ([a-z ]+) upon (.*).$",
 	"$"+SCRIPT_NAME+".echoDispelEvilMsg",
 	true,false,false,null,Font.PLAIN);
 	
 	triggerManager.newTrigger(
 	"nunCastHolyLance",
-	"^Your ([A-Za-z ]+) (?:shines divinely|sparkles|blazes in celestial flames|radiates purity) as white lightning strikes through the air ([a-z]+) (.*).$",
+	"^Your ([A-Za-z -]+) (?:shines divinely|sparkles|blazes in celestial flames|radiates purity) as white lightning strikes through the air ([a-z]+) (.*).$",
 	"$"+SCRIPT_NAME+".echoHolyLanceMsg",
 	true,false,false,null,Font.PLAIN);
 	
 	if(gagSpellLines) {
 		triggerManager.newTrigger(
 		"gagNunBlastCast",
-		"^You (?:kiss|frantically swing|praise the saints and raise|kneel down squeezing|hold your|hop with one leg while praising Las and utter|roll your eyes while rubbing halo and sing out|wave|fume celestial force and utter the words|squeeze tightly on your glimmering|rub|raise|stare intensively at|mutter the magic words|cherish your|gaze to the heighs while holding|cut the air with|are surrounded by fuming white aura as you mutter|spread white glow with your|touch your pulsing halo and quickly recite|swing)[A-Za-z ,]+'(?:Ez' div|Sanctum circum|"+holyLanceWords+")'$",
+		"^You (?:kiss|frantically swing|praise the saints and raise|kneel down squeezing|hold your|hop with one leg while praising Las and utter|roll your eyes while rubbing halo and sing out|wave|fume celestial force and utter the words|squeeze tightly on your glimmering|rub|raise|stare intensively at|mutter the magic words|cherish your|gaze to the heighs while holding|cut the air with|are surrounded by fuming white aura as you mutter|spread white glow with your|touch your pulsing halo and quickly recite|swing)[A-Za-z ,-]+'(?:Ez' div|Sanctum circum|"+holyLanceWords+")'$",
 		"",
 		true,false,false,null,Font.PLAIN);
 	}
