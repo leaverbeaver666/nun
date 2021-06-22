@@ -27,6 +27,8 @@ String BOLD 		= "\u001b[1m";
 Map relics;
 Map resists;
 Map colors;
+public boolean syggaxShieldSpecial;
+public String dmgType;
 
 void bootup() {
 	initMap();
@@ -49,6 +51,12 @@ void bootup() {
 	"$"+SCRIPT_NAME+".echoHolyLanceMsg",
 	true,false,false,null,Font.PLAIN);
 	
+	triggerManager.newTrigger(
+	"nunSyggaxShieldSpecial",
+	"^Your round birch shield with bloodstone cross and rim glows faintly violet.$",
+	"$"+SCRIPT_NAME+".setDmgTypeAsp",
+	true,false,false,null,Font.PLAIN);
+	
 	if(gagSpellLines) {
 		triggerManager.newTrigger(
 		"gagNunBlastCast",
@@ -58,39 +66,55 @@ void bootup() {
 	}
 }
 
+void setDmgTypeAsp(){
+	syggaxShieldSpecial=true;
+}
+
 void echoHolyBoltMsg(){
 	String relic = vars.get(1);
 	String dmgMessage = vars.get(2);
 	String target = vars.get(3);
-	String dmgType = relics.get(relic);
+	if(syggaxShieldSpecial){
+			dmgType = "Asph";
+	}else{
+			dmgType = relics.get(relic); }
 	String resist = resists.get(dmgMessage);
 	String typeColor = colors.get(dmgType);
 	if(useColors) {
 			clientGUI.printText("general", "Holy Bolt -> "+target+"  "+BOLD+typeColor+"[ "+dmgType+" "+resist+" ]"+RESET+"\n", echoColor);
 	}else{	clientGUI.printText("general", "Holy Bolt -> "+target+"  [ "+dmgType+" "+resist+" ]\n"); }
+	syggaxShieldSpecial=false;
 }
 
 void echoDispelEvilMsg(){
     String relic = vars.get(1);
     String dmgMessage = vars.get(2);
     String target = vars.get(3);
-    String dmgType = relics.get(relic);
+	if(syggaxShieldSpecial){
+			dmgType = "Asph";
+	}else{
+			dmgType = relics.get(relic); }
     String resist = resists.get(dmgMessage);
 	String typeColor = colors.get(dmgType);
 	if(useColors) {
 			clientGUI.printText("general", "Dispel Evil -> "+target+"  "+BOLD+typeColor+"[ "+dmgType+" "+resist+" ]"+RESET+"\n", echoColor);
 	}else{	clientGUI.printText("general", "Dispel Evil -> "+target+"  [ "+dmgType+" "+resist+" ]\n"); }
+	syggaxShieldSpecial=false;
 }
 
 void echoHolyLanceMsg(){
     String relic = vars.get(1);
     String dmgMessage = vars.get(2);
     String target = vars.get(3);
-    String dmgType = relics.get(relic);
+	if(syggaxShieldSpecial){
+			dmgType = "Asph";
+	}else{
+			dmgType = relics.get(relic); }
 	String typeColor = colors.get(dmgType);
 	if(useColors) {
 			clientGUI.printText("general", "Holy Lance -> "+target+"  "+BOLD+typeColor+"[ "+dmgType+" "+dmgMessage+" ]"+RESET+"\n", echoColor);
 	}else{	clientGUI.printText("general", "Holy Lance -> "+target+"  [ "+dmgType+" "+dmgMessage+" ]\n"); }
+	syggaxShieldSpecial=false;
 }
 
 //SUPPORTED RELICS:	crosier of angel, cold relic, fire relic, fat ruler, roth daily shield, add as needed
@@ -129,4 +153,5 @@ void initMap(){
 	colors.put("FAT RULER", "\u001b[33m"); // yellow
 	colors.put("ROSARY", "\u001b[33m"); // yellow
 	colors.put("REFUEL ME PLZ", "\u001b[33m"); // yellow
+	colors.put("Asph", "\u001b[35m"); // magenta
 }
