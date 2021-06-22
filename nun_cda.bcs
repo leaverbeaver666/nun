@@ -93,7 +93,7 @@ void echoHolyLanceMsg(){
 	}else{	clientGUI.printText("general", "Holy Lance -> "+target+"  [ "+dmgType+" "+dmgMessage+" ]\n"); }
 }
 
-//SUPPORTED RELICS:	crosier of angel, cold relic, fire relic, fat ruler, add as needed
+//SUPPORTED RELICS:	crosier of angel, cold relic, fire relic, fat ruler, roth daily shield, add as needed
 void initMap(){
 	relics = new HashMap();
 	relics.put("Crosier of Angel", "Mana");
