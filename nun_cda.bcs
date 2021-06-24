@@ -53,7 +53,7 @@ void bootup() {
 	
 	triggerManager.newTrigger(
 	"nunSyggaxShieldSpecial",
-	"^Your round birch shield with bloodstone cross and rim glows faintly violet.$",
+	"^Your round birch shield with bloodstone cross and rim glows (?:faintly|fiercely) violet.$",
 	"$"+SCRIPT_NAME+".setDmgTypeAsp",
 	true,false,false,null,Font.PLAIN);
 	
