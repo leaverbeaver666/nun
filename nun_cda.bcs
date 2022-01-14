@@ -1,6 +1,6 @@
 SCRIPT_NAME = "nuncda";
 SCRIPT_DESC = "abbreviates _your_ holy bolt, dispel evil and holy lance type and damage messages";
-SCRIPT_OFF = false;
+SCRIPT_ON = true;
 
 //DISCLAIMER:		Nun blast messages are based on the amount of damage done, and as such the resist % should be taken as a guideline, not absolute truth.
 //					This script is still very much a work in progress, use at your own peril.
@@ -53,7 +53,7 @@ void bootup() {
 	
 	triggerManager.newTrigger(
 	"nunSyggaxShieldSpecial",
-	"^Your round birch shield with bloodstone cross and rim glows faintly violet.$",
+	"^Your round birch shield with bloodstone cross and rim glows (?:faintly|fiercely) violet.$",
 	"$"+SCRIPT_NAME+".setDmgTypeAsp",
 	true,false,false,null,Font.PLAIN);
 	
@@ -78,6 +78,9 @@ void echoHolyBoltMsg(){
 			dmgType = "Asph";
 	}else{
 			dmgType = relics.get(relic); }
+	if(dmgType == null){
+	dmgType = "Unlisted Relic"; }		
+	
 	String resist = resists.get(dmgMessage);
 	String typeColor = colors.get(dmgType);
 	if(useColors) {
@@ -94,8 +97,12 @@ void echoDispelEvilMsg(){
 			dmgType = "Asph";
 	}else{
 			dmgType = relics.get(relic); }
-    String resist = resists.get(dmgMessage);
+	if(dmgType == null){
+		dmgType = "Unlisted Relic"; }
+		
+	String resist = resists.get(dmgMessage);
 	String typeColor = colors.get(dmgType);
+	
 	if(useColors) {
 			clientGUI.printText("general", "Dispel Evil -> "+target+"  "+BOLD+typeColor+"[ "+dmgType+" "+resist+" ]"+RESET+"\n", echoColor);
 	}else{	clientGUI.printText("general", "Dispel Evil -> "+target+"  [ "+dmgType+" "+resist+" ]\n"); }
@@ -110,6 +117,9 @@ void echoHolyLanceMsg(){
 			dmgType = "Asph";
 	}else{
 			dmgType = relics.get(relic); }
+	if(dmgType == null){
+	dmgType = "Unlisted Relic"; }
+	
 	String typeColor = colors.get(dmgType);
 	if(useColors) {
 			clientGUI.printText("general", "Holy Lance -> "+target+"  "+BOLD+typeColor+"[ "+dmgType+" "+dmgMessage+" ]"+RESET+"\n", echoColor);
@@ -154,4 +164,5 @@ void initMap(){
 	colors.put("ROSARY", "\u001b[33m"); // yellow
 	colors.put("REFUEL ME PLZ", "\u001b[33m"); // yellow
 	colors.put("Asph", "\u001b[35m"); // magenta
+	colors.put("Unlisted Relic", "\u001b[33m"); // yellow
 }
