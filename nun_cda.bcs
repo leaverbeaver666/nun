@@ -41,7 +41,7 @@ void bootup() {
 	
 	triggerManager.newTrigger(
 	"nunCastDispelEvil",
-	"^(?:Flash of brilliance takes over|Waves of holy force enfold|Air crackles around|Holy sparks fly around) you as dazzling flash erupts from your ([A-Za-z -]+) and strikes ([a-z ]+) upon (.*).$",
+	"^(?:Flash of brilliance takes over|Waves of holy force enfold|Air crackles around|Holy sparks fly around|White light tangles around) you as dazzling flash erupts from your ([A-Za-z -]+) and strikes ([a-z ]+) upon (.*)\.$",
 	"$"+SCRIPT_NAME+".echoDispelEvilMsg",
 	true,false,false,null,Font.PLAIN);
 	
